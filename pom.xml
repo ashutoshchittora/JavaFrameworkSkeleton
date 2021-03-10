@@ -9,14 +9,7 @@
   <name>student</name>
   <url>http://maven.apache.org</url>
   
-	<properties>
-		<cucumber.version> 1.2.5</cucumber.version>
-  		<skip.surefire.tests>${skipTests}</skip.surefire.tests>
-  		<skip.BulkTest>true</skip.BulkTest>
-  		<bulkPackRootFolder>studentBulk.FeatureFiles</bulkPackRootFolder>
-  		<bulkPackFolder>studentWithAges</bulkPackFolder>
-  		<includecucumber.tags>@studentAge</includecucumber.tags>
-  		<maven.forked.vm.args>$(env.MAVEN_FORKED_VM_ARGS)</maven.forked.vm.args>  	 
+	<properties>  	 
 		<cucumber.version>1.2.5</cucumber.version>
 	</properties>
 
@@ -597,7 +590,7 @@
   							<version>3.7.0.1746</version>  							
   						</plugin>
   						<!-- this plugin configuration is used to store Eclipse m2e settings and has no influence on maven build -->
-  						<plugin>
+  						<!-- <plugin>
   							<groupId>org.eclipse.m2e</groupId>
   							<artifactId>lifecycle-mapping</artifactId>
   							<version>1.0.0</version>
@@ -617,7 +610,7 @@
   									</pluginExecutions>
   								</lifecycleMappingMetadata>
   							</configuration>
-  						</plugin>
+  						</plugin> -->
   					</plugins>
   				</pluginManagement>
   			</build>
