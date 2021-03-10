@@ -1,0 +1,644 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>com</groupId>
+  <artifactId>student</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  <packaging>jar</packaging>
+  <name>student</name>
+  <url>http://maven.apache.org</url>
+  
+	<properties>
+		<cucumber.version> 1.2.5</cucumber.version>
+  		<skip.surefire.tests>${skipTests}</skip.surefire.tests>
+  		<skip.BulkTest>true</skip.BulkTest>
+  		<bulkPackRootFolder>studentBulk.FeatureFiles</bulkPackRootFolder>
+  		<bulkPackFolder>studentWithAges</bulkPackFolder>
+  		<includecucumber.tags>@studentAge</includecucumber.tags>
+  		<maven.forked.vm.args>$(env.MAVEN_FORKED_VM_ARGS)</maven.forked.vm.args>  	 
+		<cucumber.version>1.2.5</cucumber.version>
+	</properties>
+
+	<dependencies>
+		<!-- https://mvnrepository.com/artifact/io.github.bonigarcia/webdrivermanager -->
+		<dependency>
+			<groupId>io.github.bonigarcia</groupId>
+			<artifactId>webdrivermanager</artifactId>
+			<version>4.3.1</version>
+			<scope>test</scope>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-java -->
+		<dependency>
+			<groupId>org.seleniumhq.selenium</groupId>
+			<artifactId>selenium-java</artifactId>
+			<version>3.11.0</version>
+			<scope>test</scope>
+		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-chrome-driver -->
+		<dependency>
+			<groupId>org.seleniumhq.selenium</groupId>
+			<artifactId>selenium-chrome-driver</artifactId>
+			<version>3.11.0</version>
+			<scope>test</scope>
+		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-edge-driver -->
+		<dependency>
+			<groupId>org.seleniumhq.selenium</groupId>
+			<artifactId>selenium-edge-driver</artifactId>
+			<version>3.11.0</version>
+			<scope>test</scope>
+		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-firefox-driver -->
+		<dependency>
+			<groupId>org.seleniumhq.selenium</groupId>
+			<artifactId>selenium-firefox-driver</artifactId>
+			<version>3.11.0</version>
+			<scope>test</scope>
+		</dependency>
+
+
+		<dependency>
+			<groupId>org.seleniumhq.selenium</groupId>
+			<artifactId>selenium-ie-driver</artifactId>
+			<version>3.11.0</version>
+			<scope>test</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>org.seleniumhq.selenium</groupId>
+			<artifactId>selenium-opera-driver</artifactId>
+			<version>3.11.0</version>
+			<scope>test</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>org.seleniumhq.selenium</groupId>
+			<artifactId>selenium-safari-driver</artifactId>
+			<version>3.11.0</version>
+			<scope>test</scope>
+		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-support -->
+		<dependency>
+			<groupId>org.seleniumhq.selenium</groupId>
+			<artifactId>selenium-support</artifactId>
+			<version>3.11.0</version>
+		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-htmlunit-driver -->
+		<dependency>
+			<groupId>org.seleniumhq.selenium</groupId>
+			<artifactId>selenium-htmlunit-driver</artifactId>
+			<version>2.47.1</version>
+		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/org.seleniumhq.selenium/htmlunit-driver -->
+		<dependency>
+			<groupId>org.seleniumhq.selenium</groupId>
+			<artifactId>htmlunit-driver</artifactId>
+			<version>2.47.1</version>
+		</dependency>
+
+		<!-- CUCUMBER dependencies -->
+
+		<!-- https://mvnrepository.com/artifact/info.cukes/cucumber-java -->
+		<dependency>
+			<groupId>info.cukes</groupId>
+			<artifactId>cucumber-java</artifactId>
+			<version>${cucumber.version}</version>
+			<scope>test</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>info.cukes</groupId>
+			<artifactId>cucumber-junit</artifactId>
+			<version>${cucumber.version}</version>
+			<scope>test</scope>
+		</dependency>
+
+
+		<dependency>
+			<groupId>info.cukes</groupId>
+			<artifactId>cucumber-testng</artifactId>
+			<version>${cucumber.version}</version>
+			<scope>test</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>info.cukes</groupId>
+			<artifactId>cucumber-picocontainer</artifactId>
+			<version>${cucumber.version}</version>
+			<scope>test</scope>
+
+		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/org.testng/testng -->
+		<dependency>
+			<groupId>org.testng</groupId>
+			<artifactId>testng</artifactId>
+			<version>6.14.3</version>
+			<scope>test</scope>
+		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/junit/junit -->
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>4.11</version>
+			<scope>test</scope>
+		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/org.hamcrest/hamcrest-all -->
+		<dependency>
+			<groupId>org.hamcrest</groupId>
+			<artifactId>hamcrest-all</artifactId>
+			<version>1.3</version>
+			<scope>test</scope>
+		</dependency>
+
+		<!-- File , API reading and parsing -->
+		<!-- https://mvnrepository.com/artifact/com.google.code.gson/gson -->
+		<dependency>
+			<groupId>com.google.code.gson</groupId>
+			<artifactId>gson</artifactId>
+			<version>2.8.5</version>
+		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/org.json/json -->
+		<dependency>
+			<groupId>org.json</groupId>
+			<artifactId>json</artifactId>
+			<version>20210307</version>
+		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/org.codehaus.jackson/jackson-mapper-asl -->
+		<dependency>
+			<groupId>org.codehaus.jackson</groupId>
+			<artifactId>jackson-mapper-asl</artifactId>
+			<version>1.9.13</version>
+		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/xml-apis/xml-apis -->
+		<dependency>
+			<groupId>xml-apis</groupId>
+			<artifactId>xml-apis</artifactId>
+			<version>1.4.01</version>
+		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/org.apache.poi/poi-ooxml -->
+		<dependency>
+			<groupId>org.apache.poi</groupId>
+			<artifactId>poi-ooxml</artifactId>
+			<version>3.9</version>
+			<exclusions>
+				<exclusion>
+					<artifactId>xml-apis</artifactId>
+					<groupId>xml-apis</groupId>
+
+				</exclusion>
+			</exclusions>
+		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/com.google.guava/guava -->
+		<dependency>
+			<groupId>com.google.guava</groupId>
+			<artifactId>guava</artifactId>
+			<version>23.0</version>
+		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/net.sourceforge.cssparser/cssparser -->
+		<dependency>
+			<groupId>net.sourceforge.cssparser</groupId>
+			<artifactId>cssparser</artifactId>
+			<version>0.9.23</version>
+		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/org.apache.commons/commons-math3 -->
+		<dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-math3</artifactId>
+			<version>3.6.1</version>
+		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/org.skyscreamer/jsonassert -->
+		<dependency>
+			<groupId>org.skyscreamer</groupId>
+			<artifactId>jsonassert</artifactId>
+			<version>1.5.0</version>
+			<scope>test</scope>
+		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/com.opencsv/opencsv -->
+		<dependency>
+			<groupId>com.opencsv</groupId>
+			<artifactId>opencsv</artifactId>
+			<version>3.3</version>
+		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/org.simpleflatmapper/sfm-csv -->
+		<dependency>
+			<groupId>org.simpleflatmapper</groupId>
+			<artifactId>sfm-csv</artifactId>
+			<version>3.15.3</version>
+		</dependency>
+
+		<!-- Unix , Azure , Mongo , DB connectivity -->
+
+		<!-- https://mvnrepository.com/artifact/com.jcraft/jzlib -->
+		<dependency>
+			<groupId>com.jcraft</groupId>
+			<artifactId>jzlib</artifactId>
+			<version>1.0.7</version>
+			<optional>true</optional>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/com.jcraft/jsch -->
+		<dependency>
+			<groupId>com.jcraft</groupId>
+			<artifactId>jsch</artifactId>
+			<version>0.1.54</version>
+		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/com.microsoft.azure/azure-storage -->
+		<dependency>
+			<groupId>com.microsoft.azure</groupId>
+			<artifactId>azure-storage</artifactId>
+			<version>6.1.0</version>
+		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/org.mongodb/mongo-java-driver -->
+		<dependency>
+			<groupId>org.mongodb</groupId>
+			<artifactId>mongo-java-driver</artifactId>
+			<version>3.8.2</version>
+		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/com.microsoft.azure/azure-servicebus -->
+		<dependency>
+			<groupId>com.microsoft.azure</groupId>
+			<artifactId>azure-servicebus</artifactId>
+			<version>0.9.7</version>
+		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/com.oracle.database.jdbc/ojdbc8 -->
+		<dependency>
+			<groupId>com.oracle.database.jdbc</groupId>
+			<artifactId>ojdbc8</artifactId>
+			<version>19.3.0.0</version>
+		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/com.microsoft.sqlserver/mssql-jdbc -->
+		<dependency>
+			<groupId>com.microsoft.sqlserver</groupId>
+			<artifactId>mssql-jdbc</artifactId>
+			<version>6.1.0.jre8</version>
+			<scope>test</scope>
+		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/com.microsoft.azure/azure-documentdb -->
+		<dependency>
+			<groupId>com.microsoft.azure</groupId>
+			<artifactId>azure-documentdb</artifactId>
+			<version>1.15.1</version>
+		</dependency>
+
+		<!-- used to read ods file -->
+
+		<!-- https://mvnrepository.com/artifact/org.jopendocument/jOpenDocument -->
+		<dependency>
+			<groupId>org.jopendocument</groupId>
+			<artifactId>jOpenDocument</artifactId>
+			<version>1.3b1</version>
+		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/io.rest-assured/rest-assured -->
+		<dependency>
+			<groupId>io.rest-assured</groupId>
+			<artifactId>rest-assured</artifactId>
+			<version>4.3.3</version>
+			<scope>test</scope>
+		</dependency>
+
+		<!-- FTP CLiet :::: https://mvnrepository.com/artifact/commons-net/commons-net -->
+		<dependency>
+			<groupId>commons-net</groupId>
+			<artifactId>commons-net</artifactId>
+			<version>3.6</version>
+		</dependency>
+
+
+		<!-- Logging -->
+		<!-- https://mvnrepository.com/artifact/org.apache.logging.log4j/log4j-core -->
+		<dependency>
+			<groupId>org.apache.logging.log4j</groupId>
+			<artifactId>log4j-core</artifactId>
+			<version>2.14.0</version>
+		</dependency>
+
+
+		<!-- SONAR -->
+		<!-- https://mvnrepository.com/artifact/org.codehaus.plexus/plexus-utils -->
+		<dependency>
+			<groupId>org.codehaus.plexus</groupId>
+			<artifactId>plexus-utils</artifactId>
+			<version>3.3.0</version>
+		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/org.sonarsource.scanner.maven/sonar-maven-plugin -->
+		<dependency>
+			<groupId>org.sonarsource.scanner.maven</groupId>
+			<artifactId>sonar-maven-plugin</artifactId>
+			<version>3.7.0.1746</version>
+		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/joda-time/joda-time -->
+		<dependency>
+			<groupId>joda-time</groupId>
+			<artifactId>joda-time</artifactId>
+			<version>2.9.1</version>
+		</dependency>
+	</dependencies>
+  
+  <profiles>
+  	<profile>
+  		<id>sonar</id>
+  		<activation>
+  			<activeByDefault>true</activeByDefault>
+  		</activation>  		
+  		<properties>
+  			<sonar.host.url>http://localhost:9000</sonar.host.url>
+  			<sonar.sources>pom.xml</sonar.sources>
+  			<sonar.tests>src/test</sonar.tests>
+  			<sonar.exclusions>src/main</sonar.exclusions>
+  			
+  		<!-- 	<sonar.projectKey>Student</sonar.projectKey>
+  			<sonar.login>e23456retwertcvbxcdhdfsdfgsdfgsfdg</sonar.login>
+  			 <sonar.modules>module1,module2</sonar.modules>
+  			 <module1.sonar.sources>src/main/java</module1.sonar.sources>
+  			 <module1.sonar.tests>src/test/java</module1.sonar.tests>
+  			 <module1.sonar.projectBaseDir>.</module1.sonar.projectBaseDir>
+  			 <module2.sonar.sources>src/main/java</module2.sonar.sources>
+  			 <module2.sonar.tests>src/test/java</module2.sonar.tests>
+  			 <module2.sonar.projectBaseDir>.</module2.sonar.projectBaseDir> -->
+  			  
+  		</properties>  		
+  		<repositories>
+  			<repository>
+  				<id>StudentProjectApp-Maven</id>
+  				<url>https://dev.azure.com/student/_packaging/StudentProjectApp-Maven/maven/v1</url>
+  				 <releases>
+  					<enabled>true</enabled>
+  				</releases>
+  				<snapshots>
+  					<enabled>true</enabled>
+  				</snapshots>
+  			</repository>
+  		</repositories>
+  		
+  		<pluginRepositories>
+  			<pluginRepository>
+  				<id>StudentProjectApp-Maven</id>
+  				<url>https://dev.azure.com/student/_packaging/StudentProjectApp-Maven/maven/v1</url>
+  				<releases>
+  					<enabled>true</enabled>
+  				</releases>
+  				<snapshots>
+  					<enabled>true</enabled>
+  				</snapshots>
+  			</pluginRepository>
+  		</pluginRepositories>
+  		
+  			<!-- CUCABLE -->
+  			<build>
+  				<plugins>
+  					<plugin>
+  						<groupId>org.apache.maven.plugin</groupId>
+  						<artifactId>maven-compiler-plugin</artifactId>
+  						<version>3.1</version>
+  						<configuration>
+  							<source>1.8</source>
+  							<target>1.8</target>
+  							<encoding>UTF-8</encoding>
+  						</configuration>
+  					</plugin>
+  					<plugin>
+  					<groupId>org.apache.maven.plugin</groupId>
+  						<artifactId>maven-surefire-plugin</artifactId>
+  						<version>3.0.0-M3</version>
+  						<!-- skip unit test when integration test is running 
+  						<configuration>
+  						<disableXmlReport>true</disableXmlReport>
+  						<skipTests>${skip.surefire.tests}</skipTests>
+  						<argLine>${maven.forked.vm.args}</argLine>
+  						</configuration> -->
+  					</plugin>
+  					<plugin>
+  						<groupId>org.apache.maven.plugins</groupId>
+    					<artifactId>maven-jar-plugin</artifactId>
+    					<version>3.1.0</version>
+  						<executions>
+  							<execution>
+  								<goals>
+  									<goal>test-jar</goal>
+  								</goals>
+  							</execution>
+  						</executions>
+  					</plugin>
+  					<!-- <plugin>
+  						<groupId>net.masterthought</groupId>
+  						<artifactId>maven-cucumber-reporting</artifactId>
+  						<version>2.0.0</version>
+  						<executions>
+  							<execution>
+  								<id>execution</id>
+  								<phase>verify</phase>
+  								<goals>
+  									<goal>generate</goal>
+  								</goals>
+  								<configuration>
+  									<projectName>cucumber-jvm-example</projectName>
+  									<outputDirectory>target/site/${module}-reports</outputDirectory>
+  									<cucumberOutput>targe/${module}.json</cucumberOutput>
+  									<skippedFails>true</skippedFails>
+  									<buildNumber>0001</buildNumber>  									
+  								</configuration>
+  							</execution>
+  						</executions>
+  					</plugin>
+  					<plugin>
+  						<groupId>org.codehaus.mojo</groupId>
+  						<artifactId>exec-maven-plugin</artifactId>
+  						<version>1.6.0</version>
+  						<executions>
+  							<execution>
+  								<goals>
+  									<goal>java</goal>
+  								</goals>
+  							</execution>	
+  						</executions>
+  						<configuration>
+  							<classpathScope>test</classpathScope>
+  							<mainClass>com.student.testRunner.RunStudentCreationTest</mainClass>
+  							<arguments></arguments>
+  						</configuration>
+  					</plugin> -->
+  					<plugin>
+  						<groupId>com.trivago.rta</groupId>
+  						<artifactId>cucable-plugin</artifactId>
+  						<version>1.4.0</version>
+  						<executions>
+  							<execution>
+  								<id>generate-test-resources</id>
+  								<phase>generate-test-resources</phase>
+  								<goals>
+  									<goal>parallel</goal>
+  								</goals>
+  							</execution>
+  						</executions>
+  						<configuration>
+  							<sourceRunnerTemplateFile>src/test/resources/paralle/cucable.template</sourceRunnerTemplateFile>
+  							<sourceFeatures>src/test/resources/com/student/${bulkPackRootFolder/${bulkPackFolder}}</sourceFeatures>
+  							<generatedFeatureDirectory>target/generated-test-sources/parallel/features</generatedFeatureDirectory>
+  							<generatedRunnerDirectory>target/generated-test-sources/parallel/runners</generatedRunnerDirectory>
+  							<includeScenarioTags>${includecucumber.tags}</includeScenarioTags>
+  							<numberOfTestRuns>1</numberOfTestRuns>  							
+  							<!-- <includeScenarioTags>@includeMe,@includemeAsWell</includeScenarioTags>
+  							<excludeScenarioTags>@skip</excludeScenarioTags>
+  							<logLevel>compact</logLevel>
+  							<desiredNumberOfRunners>2</desiredNumberOfRunners>
+  							or <desiredNumberOfFeaturesPerRunner>5</desiredNumberOfFeaturesPerRunner> -->  							
+  						</configuration>
+  					</plugin>
+  					<plugin>
+  						<groupId>org.codehaus.mojo</groupId>
+    					<artifactId>build-helper-maven-plugin</artifactId>
+    					<version>3.0.0</version> 
+  						<executions>
+  							<!-- <execution>
+  								<id>add-test-source</id>
+  								<phase>generate-sources</phase>
+  								<goals>
+  									<goal>add-test-source</goal>
+  								</goals>
+  							</execution> -->
+  						</executions>
+  						<configuration>
+  							<sources>
+  								<source>target/generated-test-sources</source>
+  							</sources>
+  						</configuration>
+  					</plugin>
+  					<plugin>
+  						<groupId>org.apache.maven.plugins</groupId>
+  						<artifactId>maven-failsafe-plugin</artifactId>
+  						<version>3.0.0-M3</version>
+  						<executions>
+  							<execution>
+  								<id>integration-test</id>
+  								<goals>
+  									<goal>integration-test</goal>
+  								</goals>
+  							</execution>
+  							<execution>
+  								<id>verify</id>
+  								<goals>
+  									<goal>verify</goal>
+  								</goals>
+  							</execution>
+  						</executions>
+  						<!-- <configuration>
+  							<skipITs>${skip.BulkTest}</skipITs>
+  							<testFailureIgnore>true</testFailureIgnore>
+  							<forkCount>${maven.fork.count}</forkCount>
+  							<reuseForks>false</reuseForks>
+  							<argLine>-Dfile.encoding=UTF-8 -Dcom.student.forkNumber=${surefire.forkNumber}/${maven.forked.vm.args}</argLine>
+  							<disableXmlReports>false</disableXmlReports>
+  							<test>parallel.runners.*_IT</test>
+  							<printSummary>true</printSummary>
+  							<redirectTestOutputToFile>true</redirectTestOutputToFile>
+  							<shutdown>kill</shutdown>  						
+  						</configuration> -->
+  					</plugin>
+  					<plugin>
+  						<groupId>com.trivage.rta</groupId>
+  						<artifactId>cluecumber-report-plugin</artifactId>
+  						<version>2.3.1</version>
+  						<executions>
+  							<execution>
+  								<id>report</id>
+  								<phase>post-integration-test</phase>
+  								<goals>
+  									<goal>reporting</goal>
+  								</goals>
+  							</execution>
+  						</executions>
+  						<configuration>
+  							<skip>${skip.BulkTest}</skip>
+  							<sourceJsonReportDirectory>${project.build.directory}/cucumber-report</sourceJsonReportDirectory>
+  							<generatedHtmlReportDirectory>${project.build.directory}/test-report</generatedHtmlReportDirectory>  							
+  						</configuration>
+  						<dependencies>
+  							<dependency>
+  								<groupId>org.codehaus.plexus</groupId>
+  								<artifactId>plexus-utils</artifactId>
+  								<version>3.3.0</version>
+  							</dependency>
+  						</dependencies>
+  					</plugin>
+  				</plugins>
+  				<pluginManagement>
+  					<plugins>
+  						<plugin>
+  							<groupId>org.sonarsource.scanner.maven</groupId>
+  							<artifactId>sonar-maven-plugin</artifactId>
+  							<version>3.7.0.1746</version>  							
+  						</plugin>
+  						<!-- this plugin configuration is used to store Eclipse m2e settings and has no influence on maven build -->
+  						<plugin>
+  							<groupId>org.eclipse.m2e</groupId>
+  							<artifactId>lifecycle-mapping</artifactId>
+  							<version>1.0.0</version>
+  							<configuration>
+  								<lifecycleMappingMetadata>
+  									<pluginExecutions>
+  										<pluginExecution>
+  											<pluginExecutionFiltyer>
+  												<groupId>com.trivago.rta</groupId>
+  												<artifactId>cucable-plugin</artifactId>
+  												<versionRange>[1.4.0,)</versionRange>
+  												<goals>
+  													<goal>parallel</goal>
+  												</goals>
+  											</pluginExecutionFiltyer>
+  										</pluginExecution>
+  									</pluginExecutions>
+  								</lifecycleMappingMetadata>
+  							</configuration>
+  						</plugin>
+  					</plugins>
+  				</pluginManagement>
+  			</build>
+  	</profile>
+  </profiles>
+  <reporting>
+  	<plugins>
+  		<plugin>
+  			<groupId>org.apache.maven.plugins</groupId>
+  			<artifactId>maven-surefire-report-plugin</artifactId>
+  			<version>3.0.0-M3</version>
+  			<reportSets>
+  				<reportSet>
+  					<id>integration-tests</id>
+  					<reports>
+  						<report>failsafe-report-only</report>
+  					</reports>
+  				</reportSet>
+  			</reportSets>
+  		</plugin>
+  	</plugins>
+  </reporting>
+  
+</project>
