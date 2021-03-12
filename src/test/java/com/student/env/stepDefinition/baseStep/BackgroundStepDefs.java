@@ -1,5 +1,9 @@
 package com.student.env.stepDefinition.baseStep;
 
-public class BackgroundStepDefs {
+import com.student.env.appSetting.Setup;
+
+public class BackgroundStepDefs extends Setup{
+	
+	
 
 }
