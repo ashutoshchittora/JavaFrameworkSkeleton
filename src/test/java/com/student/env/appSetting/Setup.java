@@ -1,6 +1,6 @@
 package com.student.env.appSetting;
 
-import org.apache.logging.log4j.Logger;
+import org.apache.log4j.Logger;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
@@ -28,7 +28,7 @@ import java.lang.invoke.MethodHandles;
 import java.util.UUID;
 import java.util.concurrent.TimeUnit;
 
-import org.apache.logging.log4j.LogManager;
+import org.apache.log4j.LogManager;
 
 public class Setup {
 	private static final Logger LOGGER = LogManager.getLogger(MethodHandles.lookup().lookupClass());
