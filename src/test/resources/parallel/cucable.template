@@ -1,0 +1,13 @@
+package parallel.runners;
+import cucumber.api.CucumberOptions;
+import cucumber.api.junit.Cucumber;
+import org.junit.runner.RunWith;
+import cucumber.api.testng.AbstractTestNGCucumberTests;
+@RunWith(Cucumber.class)
+@CucumberOptions(
+				features = {"target/generated-test-sources/paralle/features/[CUCABLE:FEATURE].feature"},
+				glue = {"com.student.env.setepDefinitions","com.student.env.setepDefinitions1","com.student.env.setepDefinitions2"} ,
+				plugin = {"json:target/cucumber-report/[CUCABLE:RUNNER].json"}
+				)
+				
+public class [CUCABLE:RUNNER] extends AbstractTestNGCucumberTests
